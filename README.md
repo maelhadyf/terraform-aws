@@ -1,43 +1,47 @@
-# AWS-terraform
+## Terraform AWS Setup: Nginx Web Server
 
-Summary:
-This Terraform script sets up a simple web server infrastructure in AWS, including a VPC, a public subnet, an internet gateway, a security group, and an EC2 instance running Nginx. The instance serves a static "Hello World" page, accessible via HTTP from the internet.
+This Terraform script sets up a basic AWS infrastructure to deploy a web server running Nginx. Below is a breakdown of the resources and configurations defined in the code:
 
-This Terraform code defines infrastructure in AWS to create a simple VPC setup with a web server running Nginx. Here's a summary of the resources and configurations:
+### 1. AWS Provider Configuration
+- Specifies AWS as the cloud provider.
+- Sets the region to `us-east-1`.
 
-AWS Provider Configuration:
+### 2. VPC (Virtual Private Cloud)
+- Creates a VPC with CIDR block `10.0.0.0/16`.
+- Enables DNS support and DNS hostnames.
+- Tags the VPC with the name `"main-vpc"`.
 
-Specifies AWS as the cloud provider and sets the region to us-east-1.
-VPC (Virtual Private Cloud):
+### 3. Public Subnet
+- Creates a public subnet with CIDR block `10.0.1.0/24` in the availability zone `us-east-1a`.
+- Configures the subnet to automatically assign public IP addresses to instances launched in it.
+- Tags the subnet with the name `"public-subnet"`.
 
-Creates a VPC with CIDR block 10.0.0.0/16 and enables DNS support and hostnames.
-Tags the VPC with the name "main-vpc".
-Subnet (Public Subnet):
+### 4. Internet Gateway
+- Creates an internet gateway and attaches it to the VPC.
+- Tags the gateway with the name `"internet-gateway"`.
 
-Creates a public subnet with CIDR block 10.0.1.0/24 in the us-east-1a availability zone.
-Configures the subnet to automatically assign public IP addresses to instances launched within it.
-Tags the subnet with the name "public-subnet".
-Internet Gateway:
+### 5. Route Table (Public Route Table)
+- Defines a route table for the VPC with a route to the internet (`0.0.0.0/0`) via the internet gateway.
 
-Creates an internet gateway and attaches it to the VPC.
-Tags the gateway with the name "internet-gateway".
-Route Table (Public Route Table):
+### 6. Route Table Association
+- Associates the public subnet with the public route table, allowing instances in the subnet to access the internet.
 
-Defines a route table for the VPC, including a route to the internet (0.0.0.0/0) through the internet gateway.
-Route Table Association:
+### 7. Security Group (Allow Nginx)
+- Creates a security group allowing inbound HTTP traffic (port 80) from any IP address (`0.0.0.0/0`).
+- Allows all outbound traffic.
+- Tags the security group with the name `"allow-nginx"`.
 
-Associates the public subnet with the public route table, enabling instances in the subnet to access the internet.
-Security Group (Allow Nginx):
+### 8. EC2 Instance (Nginx Web Server)
+- Launches an EC2 instance with Amazon Linux 2 AMI (`ami-063d43db0594b521b`) and instance type `t2.micro`.
+- Places the instance in the public subnet with the `allow-nginx` security group.
+- The instance is assigned a public IP address.
+- Uses a `user_data` script to install and start Nginx, set up a "Hello World Terraform" page, and restart Nginx.
+- Tags the instance with the name `"nginx-server"`.
 
-Creates a security group allowing inbound HTTP (port 80) traffic from any IP address (0.0.0.0/0).
-Allows all outbound traffic (egress set to 0.0.0.0/0).
-Tags the security group with the name "allow-nginx".
-EC2 Instance (Nginx Web Server):
+### 9. Output
+- Outputs the public IP address of the created EC2 instance (`web_public_ip`).
 
-Launches an EC2 instance using the Amazon Linux 2 AMI (ami-063d43db0594b521b) with instance type t2.micro (a small, free-tier eligible instance).
-The instance is launched in the public subnet, with the allow-nginx security group and a public IP address.
-A user_data script installs and starts Nginx, sets up a simple "Hello World Terraform" page, and restarts Nginx.
-Tags the instance with the name "nginx-server".
-Output:
+---
 
-Outputs the public IP address of the created EC2 instance (web_public_ip).
+### Summary:
+This Terraform script automates the creation of a simple web server infrastructure in AWS, including a VPC, public subnet, internet gateway, security group, and an EC2 instance running Nginx. The EC2 instance serves a static "Hello World" page, accessible via HTTP from the internet.
