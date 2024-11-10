@@ -14,7 +14,8 @@ Before running the script, make sure you have completed the following steps:
 
 ## How to Run the Script
 
-#### 1. ```terraform init```
+```bash
+terraform init
 
 
 
