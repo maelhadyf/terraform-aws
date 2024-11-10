@@ -19,13 +19,25 @@ Before running the script, make sure you have completed the following steps:
 git clone https://github.com/yourusername/terraform-aws-nginx.git
 cd terraform-aws-nginx
 ```
-
 #### 2. Initialize Terraform
 ```bash
 terraform init
 ```
+#### 3. Run Terraform Plan to see what changes Terraform will make to your infrastructure
+```bash
+terraform plan
+```
+#### 4. Apply the Terraform Configuration
+```bash
+terraform apply
+```
+## Take Care
+#### Cleanup (To destroy the resources created by this Terraform configuration)
+```bash
+terraform destroy
+```
 
-
+## Code Explanation
 
 ### 1. AWS Provider Configuration
 - Specifies AWS as the cloud provider.
