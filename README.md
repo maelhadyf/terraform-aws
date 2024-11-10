@@ -2,6 +2,23 @@
 
 This Terraform script sets up a basic AWS infrastructure to deploy a web server running Nginx. Below is a breakdown of the resources and configurations defined in the code:
 
+## Prerequisites
+
+Before running the script, make sure you have completed the following steps:
+
+### 1. **Install Terraform**
+
+### 2. **Ensure that the AWS CLI is installed and configured with your AWS credentials**
+
+### 3. **Create an SSH Key Pair**
+
+## How to Run the Script
+
+##
+<tab><tab>terraform init/text here
+
+
+
 ### 1. AWS Provider Configuration
 - Specifies AWS as the cloud provider.
 - Sets the region to `us-east-1`.
