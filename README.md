@@ -16,6 +16,7 @@ Before running the script, make sure you have completed the following steps:
 
 ```bash
 terraform init
+```
 
 
 
