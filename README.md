@@ -6,11 +6,11 @@ This Terraform script sets up a basic AWS infrastructure to deploy a web server 
 
 Before running the script, make sure you have completed the following steps:
 
-### 1. **Install Terraform**
+#### 1. **Install Terraform**
 
-### 2. **Ensure that the AWS CLI is installed and configured with your AWS credentials**
+#### 2. **Ensure that the AWS CLI is installed and configured with your AWS credentials**
 
-### 3. **Create an SSH Key Pair**
+#### 3. **Create an SSH Key Pair**
 
 ## How to Run the Script
 
