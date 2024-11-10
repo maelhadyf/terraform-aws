@@ -14,8 +14,7 @@ Before running the script, make sure you have completed the following steps:
 
 ## How to Run the Script
 
-##
-<tab><tab>terraform init/text here
+#### 1. ```terraform init```
 
 
 
