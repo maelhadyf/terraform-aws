@@ -14,6 +14,13 @@ Before running the script, make sure you have completed the following steps:
 
 ## How to Run the Script
 
+#### 1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/terraform-aws-nginx.git
+cd terraform-aws-nginx
+```
+
+#### 2. Initialize Terraform
 ```bash
 terraform init
 ```
