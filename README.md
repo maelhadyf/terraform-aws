@@ -87,3 +87,14 @@ terraform destroy
 
 ## Summary:
 This Terraform script automates the creation of a simple web server infrastructure in AWS, including a VPC, public subnet, internet gateway, security group, and an EC2 instance running Nginx. The EC2 instance serves a static "Hello World" page, accessible via HTTP from the internet.
+
+---
+
+## 📄 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## ✍️ Author
+**King Memo**
+
+## 🙏 Thank You!
+Thank you for using this project. Your support and feedback are greatly appreciated!
